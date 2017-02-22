@@ -22,7 +22,7 @@ Aceso是基于Instant Run Hot Swap的Android热修复方案，使用它你能在
 ## Usage
 1.在最外层project的build.gradle中加入以下代码：
 
-```
+```groovy
 buildscript {
     repositories {
         jcenter()
@@ -36,7 +36,7 @@ buildscript {
 
 2.在module的build.gradle中加入以下代码：
 
-```
+```groovy
 apply plugin: 'Aceso'
 
 dependencies {
@@ -47,7 +47,7 @@ dependencies {
 
 如果你要在debug版本中使用aceso,需要再加入如下代码：
 
-```
+```groovy
 Aceso {
     instrumentDebug = false
 }
@@ -55,7 +55,7 @@ Aceso {
 
 3.在合适的位置加入如下代码：
 
-```
+```java
  new Aceso().installPatch(optDir, patchFile);
 ```
 
@@ -67,7 +67,7 @@ Aceso {
 
 2.在最外层project的build.gradle中加入以下代码：
 
-```
+```groovy
 buildscript {
     repositories {
         jcenter()
@@ -81,7 +81,7 @@ buildscript {
 
 3.在module的build.gradle中加入以下代码：
 
-```
+```groovy
 apply plugin: 'AcesoFix'
 
 Aceso {
@@ -96,13 +96,13 @@ Aceso {
 ```
  
 
-4.将需要修改的类拷贝到Fix工程，并且保证包名不变。比如你需要修改的类为com.mogujie.aceso.demo.MainActivity，则你需要保证在fix工程中MainActivity的全限定名也为com.mogujie.aceso.demo.MainActivity。
+4.将需要修改的类拷贝到Fix工程，并且保证包名不变。比如你需要修改的类为`com.mogujie.aceso.demo.MainActivity`，则你需要保证在fix工程中MainActivity的全限定名也为`com.mogujie.aceso.demo.MainActivity`。
 
 5.进行你需要的修改
 
-6.如果你将methodLevelFix设置为true，则需要对你修改的方法前加入@FixMtd的注解(com.android.annotations.FixMtd)
+6.如果你将methodLevelFix设置为true，则需要对你修改的方法前加入`@FixMtd`的注解(`com.android.annotations.FixMtd`)
 
-7.执行gradle/.gradlew acesoRelease(或acesoDebug)命令生成对应的补丁包。补丁包在/build/outputs/apk目录下
+7.执行`gradle/.gradlew acesoRelease(或acesoDebug)`命令生成对应的补丁包。补丁包在/build/outputs/apk目录下
 
 8.将补丁包下发到手机。
 
@@ -110,7 +110,7 @@ Aceso {
 ## Demo
 1.编译并安装aceso-demo，点击test按钮，显示的是not fix! 
 
-2.在aceso-demo-fix中执行gradle/.gradlew acesoRelease(或acesoDebug)
+2.在aceso-demo-fix中执行`gradle/.gradlew acesoRelease(或acesoDebug)`
 
 3.将产生的apk包push到手机端的/sdcard/fix.apk
 

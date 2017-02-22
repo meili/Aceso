@@ -2,6 +2,8 @@
 
 Aceso is a Android HotFix by optimizing the AOSP's "InstantRun HotSwap" solution, it is used to fix online bugs without a new APK publish.
 
+[中文说明](README-zh.md)
+
 ## Features
 
 - Support 4.x to 7.0 Android OS
@@ -20,7 +22,7 @@ Aceso is a Android HotFix by optimizing the AOSP's "InstantRun HotSwap" solution
 ## Usage
 1.Add below codes in the outest project's build.gradle file
 
-```
+```groovy
 buildscript {
     repositories {
         jcenter()
@@ -34,7 +36,7 @@ buildscript {
 
 2.Add below codes in the module's build.gradle
 
-```
+```groovy
 apply plugin: 'Aceso'
 
 dependencies {
@@ -45,7 +47,7 @@ dependencies {
 
 Add below codes once you need aceso for Debug version.
 
-```
+```groovy
 Aceso {
     instrumentDebug = false
 }
@@ -53,7 +55,7 @@ Aceso {
 
 3.Add below codes at the place after HotFix downloaded and Application's onAttachedBaseContext() or onCreate() 
 
-```
+```java
  new Aceso().installPatch(optDir, patchFile);
 ```
 4.Pls. reserve the file folder "build/intermediates/aceso" under module directory at each HotFix publishment.
@@ -63,7 +65,7 @@ Aceso {
 
 2.Pls. add below codes in the outest prject's build.gradle:
 
-```
+```groovy
 buildscript {
     repositories {
         jcenter()
@@ -77,7 +79,7 @@ buildscript {
 
 3.Pls. add below codes in the module's build.gradle：
 
-```
+```groovy
 apply plugin: 'AcesoFix'
 
 Aceso {
@@ -91,22 +93,22 @@ Aceso {
 
 ```
  
-4.Pls copy the class to be fixed to Fix project, and reserve the package name, e.g., the class to be fixed named 'com.mogujie.aceso.demo.MainActivity', the MainActivity in fix project should reserve the package name as 'com.mogujie.aceso.demo.MainActivity'.
+4.Pls copy the class to be fixed to Fix project, and reserve the package name, e.g., the class to be fixed named  `com.mogujie.aceso.demo.MainActivity`, the MainActivity in fix project should reserve the package name as `com.mogujie.aceso.demo.MainActivity`.
 
 5.Fix you bug in Fix project.
 
-6.Pls. add @FixMtd above the method to be fixed once methodLevelFix is set.
+6.Pls. add `@FixMtd` above the method to be fixed once methodLevelFix is set.
 
-7.Execute command 'gradle acesoRelease(or acesoDebug)' to generate the patch package, the patch would be generated under directory build/outputs/apk
+7.Execute command `gradle acesoRelease(or acesoDebug)` to generate the patch package, the patch would be generated under directory build/outputs/apk
 
 8.Deploy the patch to the target phones.
 
 ## Demo
 1.Compile and install aceso-demo, press the test button, the 'not fix' would be displayed
 
-2.Execute command 'gradle acesoRelease(or acesoDebug) in project 'aceso-demo-fix'
+2.Execute command `gradle acesoRelease(or acesoDebug)` in project 'aceso-demo-fix'
 
-3.Use 'adb push' command to push the apk generated to path '/sdcard/fix.apk'
+3.Use `adb push` command to push the apk generated to path '/sdcard/fix.apk'
 
 4.Press fix button on the phone
 
