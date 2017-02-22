@@ -6,7 +6,7 @@ android {
         release {
             keyAlias 'aceso'
             keyPassword 'moguaceso'
-            storeFile file('/Users/farmerjohn/IdeaProjects/aceso/aceso-demo/app/aceso.keystore')
+            storeFile file('aceso.keystore')
             storePassword 'moguaceso'
         }
     }
