@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+    }
+}
+
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+
+apply plugin: 'groovy'
+apply from: 'bintray.gradle'
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:2.0.0'
+}
+
+

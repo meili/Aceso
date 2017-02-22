@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'AcesoFix'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.mogujie.aceso.hotfix"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+Aceso {
+    logLevel = 3
+    //methodLevelFix为true时，需要在修的方法前加@FixMtd的注解
+    methodLevelFix = true
+    instrumentJar = getInstrumentJar()
+    acesoMapping = getAcesoMapping()
+    allClassesJar = getAllClassesJar()
+}
+
+def getInstrumentJar() {
+    return project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/instrument/full/${buildTypeStr()}/instrument.jar").absolutePath
+}
+
+def getAcesoMapping() {
+    return project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/aceso-mapping//full/${buildTypeStr()}/aceso-mapping.txt").absolutePath
+}
+
+def getAllClassesJar(){
+    project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/all-classes/full/${buildTypeStr()}/all-classes.jar").absolutePath
+}
+
+def buildTypeStr() {
+    def buildType = ""
+    project.gradle.getStartParameter().getTaskRequests().each { taskReq ->
+        taskReq.args.each { arg ->
+            if (arg.startsWith("aceso")) {
+                buildType = (arg - "aceso").toLowerCase()
+            }
+        }
+    }
+    return buildType
+}
+
+dependencies {
+    provided fileTree(include: ['*.jar'], dir: 'libs')
+}

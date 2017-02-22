@@ -1,0 +1,15 @@
+.idea
+*.iml
+.gradle
+local.properties
+.DS_Store
+build
+aceso-demo-fix/app/libs/
+gradlew
+gradlew.bat
+*/gradle/wrapper
+/captures
+.externalNativeBuild
+
+
+
