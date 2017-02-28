@@ -14,7 +14,7 @@ Aceso is a Android HotFix by optimizing the AOSP's "InstantRun HotSwap" solution
 
 ## Limitations
 
-- Current not support fixing static function and constructors.
+- Current not support fixing static code block and constructors.
 - Functions that shrinked/inlined by proguard are NOT repariable.
 - Only the Method's body can be fixed.
 
