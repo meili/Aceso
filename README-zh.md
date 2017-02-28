@@ -2,6 +2,8 @@
 
 Aceso是基于Instant Run Hot Swap的Android热修复方案，使用它你能在不用重新发布版本的情况下对线上app的bug进行修复。
 
+[wiki](https://github.com/meili/Aceso/wiki)
+
 ## Features
 
 - 支持4.x-7.x机型

@@ -2,7 +2,10 @@
 
 Aceso is a Android HotFix by optimizing the AOSP's "InstantRun HotSwap" solution, it is used to fix online bugs without a new APK publish.
 
+[wiki](https://github.com/meili/Aceso/wiki)
+
 [中文说明](README-zh.md)
+
 
 ## Features
 
