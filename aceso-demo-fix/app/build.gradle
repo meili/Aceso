@@ -39,22 +39,29 @@ def getAcesoMapping() {
     return project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/aceso-mapping//full/${buildTypeStr()}/aceso-mapping.txt").absolutePath
 }
 
-def getAllClassesJar(){
-    project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/all-classes/full/${buildTypeStr()}/all-classes.jar").absolutePath
+def getAllClassesJar() {
+    return project.rootProject.file("../aceso-demo/app/build/intermediates/aceso/all-classes/full/${buildTypeStr()}/all-classes.jar").absolutePath
 }
 
 def buildTypeStr() {
-    def buildType = ""
+    def buildType = null
+    def defaultBuiltType = "debug"
     project.gradle.getStartParameter().getTaskRequests().each { taskReq ->
         taskReq.args.each { arg ->
+
             if (arg.startsWith("aceso")) {
                 buildType = (arg - "aceso").toLowerCase()
             }
+            if (arg.toLowerCase().contains("release")) {
+                defaultBuiltType = "release"
+            }
         }
     }
-    return buildType
+
+    return buildType == null ? defaultBuiltType : buildType
 }
 
 dependencies {
     provided fileTree(include: ['*.jar'], dir: 'libs')
+    provided files(getAllClassesJar())
 }
