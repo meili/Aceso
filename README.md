@@ -32,7 +32,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.1'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
     }
 }
 ```
@@ -75,7 +75,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.1'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
     }
 }
 ```

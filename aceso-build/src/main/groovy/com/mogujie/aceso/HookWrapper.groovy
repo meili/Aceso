@@ -24,6 +24,7 @@ import com.mogujie.aceso.traversal.ZipTraversal
 import com.mogujie.aceso.util.FileUtils
 import com.mogujie.aceso.util.GradleUtil
 import com.mogujie.aceso.util.Log
+import com.mogujie.aceso.util.ProguardUtil
 import com.mogujie.instantrun.*
 import org.gradle.api.GradleException
 import org.gradle.api.Project
@@ -188,7 +189,13 @@ public class HookWrapper {
     static boolean isNewClass(String entryName, ArrayList<File> classPath) {
         boolean isNewClass = true
 
-        if (entryName.endsWith("BuildConfig.class") || entryName ==~ AcesoBasePlugin.MATCHER_R) {
+        String realName = entryName
+        if (ProguardUtil.instance().getProguardMap().size() > 0) {
+            realName = ProguardUtil.instance().getProguardMap().get(entryName)
+            realName = realName == null ? entryName : realName
+        }
+
+        if (realName.endsWith("BuildConfig.class") || realName ==~ AcesoBasePlugin.MATCHER_R) {
             return true
         }
 
