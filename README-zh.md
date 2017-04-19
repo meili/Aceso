@@ -31,7 +31,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.3'
     }
 }
 ```
@@ -76,7 +76,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.3'
     }
 }
 ```
@@ -91,9 +91,14 @@ Aceso {
     methodLevelFix = true
     //下面文件都在Usage第4步提到的aceso文件夹中，各个文件的作用请参考wiki
     instrumentJar = ‘宿主工程生成的instrument.jar的路径’
-    allClassesJar = ‘宿主工程生成的all-classes.jar的路径’
     acesoMapping = ‘宿主工程生成的aceso-mapping.txt的路径’
 }
+
+dependencies {
+	//宿主工程生成的all-classes.jar的路径,请参考wiki和aceso-demo-fix工程
+    provided files('宿主工程生成的all-classes.jar的路径')
+}
+
 
 ```
  
