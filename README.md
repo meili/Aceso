@@ -32,7 +32,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.3'
     }
 }
 ```
@@ -75,7 +75,7 @@ buildscript {
     }
 
     dependencies {
-         classpath 'com.mogujie.aceso:aceso-build:0.0.2'
+         classpath 'com.mogujie.aceso:aceso-build:0.0.3'
     }
 }
 ```
@@ -90,8 +90,12 @@ Aceso {
     methodLevelFix = true
     // Below files are those aceso file folders whch mentioned in 4th step of Usage, pls. refer to the file usage in the wiki.
     instrumentJar = ‘The path of instrument.jar which generated in host project’
-    allClassesJar = ‘The path of all-classes.jar which generated in host project’
     acesoMapping = ‘The path of aceso-mapping.txt which generated in host project’
+}
+
+dependencies {
+	// refer to the file usage in the wiki and aceso-demo-fix project
+    provided files(‘The path of all-classes.jar which generated in host project’)
 }
 
 ```
