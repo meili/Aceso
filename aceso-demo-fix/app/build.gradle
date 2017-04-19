@@ -28,7 +28,7 @@ Aceso {
     methodLevelFix = true
     instrumentJar = getInstrumentJar()
     acesoMapping = getAcesoMapping()
-    allClassesJar = getAllClassesJar()
+//    allClassesJar = getAllClassesJar()
 }
 
 def getInstrumentJar() {
