@@ -40,7 +40,7 @@ buildscript {
 2.Add below codes in the module's build.gradle
 
 ```groovy
-apply plugin: 'Aceso'
+apply plugin: 'AcesoHost'
 
 dependencies {
     compile 'com.mogujie.aceso:aceso-android-lib:0.0.1'
