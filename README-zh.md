@@ -39,7 +39,7 @@ buildscript {
 2.在module的build.gradle中加入以下代码：
 
 ```groovy
-apply plugin: 'Aceso'
+apply plugin: 'AcesoHost'
 
 dependencies {
     compile 'com.mogujie.aceso:aceso-android-lib:0.0.1'
