@@ -51,7 +51,7 @@ dependencies {
 
 ```groovy
 Aceso {
-    instrumentDebug = false
+    instrumentDebug = true
 }
 ```
 
