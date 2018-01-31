@@ -52,7 +52,7 @@ Add below codes once you need aceso for Debug version.
 
 ```groovy
 Aceso {
-    instrumentDebug = false
+    instrumentDebug = true
 }
 ```
 
